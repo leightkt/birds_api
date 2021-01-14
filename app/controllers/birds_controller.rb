@@ -14,7 +14,8 @@ class BirdsController < ApplicationController
         @bird = Bird.create(
             color: params[:color],
             size: params[:size],
-            age: params[:age]
+            age: params[:age],
+            tree_id: Tree.find_by(species: params[:species]).id
         )
         render json: @bird
     end
